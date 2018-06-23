@@ -285,7 +285,7 @@ var locations = [{
 
 // Handles error if map doesn't load
 mapError = function() {
-    alert("Apologies. The Google Maps API didn't load correctly. Please try again later.");
+    alert("Desgraça, esse API NUNCA FUNCIONA e não está funcionando, Odin me ajuda!!");
 };
 
 
