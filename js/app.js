@@ -129,16 +129,7 @@ function initMap() {
             this.setIcon(defaultIcon);
         });
         
-        
-//        marker.addListener('click', function() {
-//        	var self = this;
-//            self.setIcon(highlightedIcon);
-//            self.setAnimation(google.maps.Animation.BOUNCE);
-//            setTimeout(function() {
-//                self.setAnimation(null);
-//                self.setIcon(defaultIcon);
-//            }, 4900);
-//        });
+
     }
 
     //FUNÇÃO PARA DAR INFO QUANDO CLICAR NA MARKER
@@ -216,28 +207,24 @@ function initMap() {
     function callFoursquare(data, callback) {
 
         // Specify foursquare url components
-        var VERSION = "20180323";
-        var CLIENT_SECRET = "AD3NKH3HXLWX3SDFSTMIGWMKODE0PR2JIGNWNAODRAYCWAMH";
-        var CLIENT_ID = "NM3VGFOXONZSMG23M3VXWVLUUZP3WEH0FJIWHKZHPTJMMHEH";
-        var LL = "-23.558191,-46.665903";
+        var versao = "20180323";
+        var secretId = "AD3NKH3HXLWX3SDFSTMIGWMKODE0PR2JIGNWNAODRAYCWAMH";
+        var clientId = "NM3VGFOXONZSMG23M3VXWVLUUZP3WEH0FJIWHKZHPTJMMHEH";
+        var ll = "-23.558191,-46.665903";
         var query = data.toLowerCase().replace("", "");
-        var fsURL = "https://api.foursquare.com/v2/venues/search?v=" + VERSION + "&ll=" + LL + "&query=" + query + "&client_id=" + CLIENT_ID + "&client_secret=" + CLIENT_SECRET;
+        var foursquareUrl = "https://api.foursquare.com/v2/venues/search?v=" + versao + "&ll=" + ll + "&query=" + query + "&client_id=" + clientId + "&client_secret=" + secretId;
         
-        //var fsURL = "https://api.foursquare.com/v2/venues/search=" + VERSION + "&ll=" + LL + "&query=" + query + "&client_id=" + CLIENT_ID + "&client_secret=" + CLIENT_SECRET;
+        //var foursquareUrl = "https://api.foursquare.com/v2/venues/search=" + versao + "&ll=" + ll + "&query=" + query + clientId + secretId;
 
        // url: https://api.foursquare.com/v2/venues/explore
         // Request JSON from foursquare api, process response
-        $.getJSON(fsURL).done(function(data) {
+        $.getJSON(foursquareUrl).done(function(data) {
             var places = data.response.venues[0];
             callback(places);
         }).fail(function() {
             alert("Deu pau na API do Foursquare.");
         });
-        //Debugging code used to ensure the callFoursquare function is returning
-        //the correct data unique to the location selected in map
-        console.group('Debug location details');
-		console.log(data + ' vs ' + title);
-		console.groupEnd();
+     
     }
 
     // Function for returning the check-ins of a place on foursquare
@@ -283,40 +270,48 @@ var locations = [{
 
 
 
-// Handles error if map doesn't load
+// ERRO SE O MAPA NÃO CARREGAR ----------------------------------------------
+
 mapError = function() {
     alert("Desgraça, esse API NUNCA FUNCIONA e não está funcionando, Odin me ajuda!!");
 };
 
 
-// My ViewModel.
+// PARTE DO VIEWMODEL. -----------------------------------------------------
+
 ViewModel = function() {
     var self = this;
 
     self.places = ko.observableArray([{
             title: "O'Malley's Bar",
             address: 'Alameda Itu, 1529',
+           // website:
            },
         {
             title: 'The Black Crow Pub',
             address: 'R. Mourato Coelho, 628',
+           // website:
         },
         {
             title: 'Finnegans Pub',
             address: 'R. Cristiano Viana, 358',
+           // website:
         },
         {
             title: 'All Black Pub',
             address: 'Rua Oscar Freire, 163',
+           // website:
         },
         {
             title: 'Partisans Pub',
             address: 'R. Cônego Eugênio Leite, 944',
+           // website:
         }
     ]);
 
 
-    // Filters 'Top Places'.
+    // FILTRO DOS PUBS -------------------------- FILTRO DOS PUBS -----------------
+    
     self.filter = ko.observable('');
     self.filteredPlaces = ko.computed(function() {
         var filter = self.filter().toLowerCase();
