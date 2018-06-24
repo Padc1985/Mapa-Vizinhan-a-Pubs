@@ -1,33 +1,31 @@
-## Website Performance Optimization portfolio project
+## PROJETO DO MAPA DA VIZINHANÇA
 
-Como abrir o site:
+## Como Instalar e abrir o site:
 
-Fazer o download do arquivo zip.
-Unzip 
-Abrir o index.html em seu navegador de preferencia;
+Fazer o download do arquivo zip pelo github
+utilizar o Winrar para descompactar o arquivo
+Abrir o index2.html em seu navegador de preferência;
 Navegar.
 
-### Getting started
+### OBJETIVO:
 
-#### Part 1: Optimize PageSpeed Insights score for index.html
+Criar um mapa com 5 pubs de SP onde pode ser visto os check-ins neles pelo foursquare
 
-Para alcançar os 90 pontos precisei:
+#### DOCUMENTAÇÃO:
 
-1. Inline o CSS;
-2. Passar a fonte e o javascript para o final do index e usar o async;
-3. Minimizar os arquivos;
-4. Comprimir as imagens e alterar o formato;
-5. Adicionar o media="print";
+Foi utilizado o Google Maps API e também o Foursquare API.
+De scripts foram utilizados o Knockout JS e o Jquery.
+
+#### PESQUISAS PARA REALIZAR O PROJETO
+
+A maior parte do projeto foi feita em conjunto com a UDACITY através das aulas 15, 17, 18 e 19.
+
+Em relação ao foursquare foram longas pesquisas no forum do stackoverflow onde peguei exemplos e fui implementando no projeto, graças a ele tive que invocar Odin para me ajudar.
+
+Link para entrar na minha página: https://padc1985.github.io/Mapa-Vizinhan-a-Pubs
 
 
+## AJUDA EXTERNA:
 
-#### Part 2: Optimize Frames per Second in pizza.html
-
-1. Usar o getElementByClassName e getElementById no lugar do querySelector;
-2. Otimizei a função do UpdatePosition;
-3. Diminui para 20 o número de pizzas que serão carregadas;
-
-Link para entrar na minha página: https://padc1985.github.io/Projeto-websitePizzaOptimization/
-
-Obs: Projeto feito em conjunto com a aluna Marília de Rossi Barros, vulgo minha esposa.
+O Projeto feito em conjunto com a aluna Marília de Rossi Barros, vulgo minha esposa.
 

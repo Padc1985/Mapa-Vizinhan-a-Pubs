@@ -16,38 +16,52 @@ input {
 }
 
 h1 {
-  color: #525454;
   font-size: 22px;
   margin: 0 0 10px 0;
   text-align: center;
 }
 
+h2 {  
+  font-size: 26px;
+  margin: 0 0 10px 0;
+  text-align: center;
+  text-decoration: underline;  
+}
+
 hr {
   background: #d0d7d9;
   height: 1px;
-  margin: 20px 0 20px 0;
+  margin: 25px 0 25px 0;
   border: none;
 }
 
-.places-list {
-  padding-left: 5px;
+.locais {
+  padding-left: 10px;
   list-style: none;
   margin: 0 auto;
 }
 
-.place-name {
-  font-size: 0.9em;
-}
+.titulos {
+  font-size: 20px;
+  font-weight: bold;
+ }
 
-.place-address,
-.place-pnumber {
-  font-size: 0.7em;
-  font-weight: normal;
-  padding-top: 3px;
+
+.websites {
+  font-size: 12px;
+  color: blue;
   list-style-type: none;
 }
 
-.map-canvas {
+.enderecos{
+  font-size: 14px;
+  font-weight: normal;
+  padding-top: 3px;
+  list-style-type: none;
+  }
+
+.detalhes-mapa {
+  margin-left: 10px;
   bottom:0px;
   height: 100%;
   left: 362px;
@@ -57,17 +71,12 @@ hr {
 
 .sidebar {
   background: #fff;
-  border: 1px solid #999;
-  border-radius: 3px;
-  line-height: 35px;
+  border: 5px solid black;
+  border-radius: 10px;
+  line-height: 37px;
   padding: 10px 10px 30px 10px;
   text-align: left;
   width: 340px;
-}
-
-#pano {
-  width: 200px;
-  height: 200px;
 }
 
 .text-input-box {
@@ -76,4 +85,5 @@ hr {
 
 .filter-label {
   font-size: 12px;
+  font-weight: bold;  
 }

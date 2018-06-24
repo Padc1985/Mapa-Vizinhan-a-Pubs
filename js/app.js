@@ -1,4 +1,4 @@
-// Creates global variables
+// VARIAVEIS GLOBAIS ----------------------------------------
 var map, marker;
 var markers = [];
 
@@ -144,7 +144,7 @@ function initMap() {
             infowindow.setContent('<div>' + marker.title + '</div>' +
                                  '<div>' + "Endereço: " + marker.address + '</div>'
                                  + '<div>' + "Localização: " + marker.position + '</div>');
-            // Make sure the marker property is cleared if the infowindow is closed.
+            
             infowindow.addListener('closeclick', function() {
                 //infowindow.setMarker = null;
                 marker.setAnimation(null);
@@ -154,9 +154,7 @@ function initMap() {
 
         var streetViewService = new google.maps.StreetViewService();
         var radius = 50;
-//         In case the status is OK, which means the pano was found, compute the
-//         position of the streetview image, then calculate the heading, then get a
-//         panorama from that and set the options
+
         function getStreetView(data, status) {
             if (status == google.maps.StreetViewStatus.OK) {
                 var nearStreetViewLocation = data.location.latLng;
@@ -187,11 +185,12 @@ function initMap() {
 
             streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
         });
-        // Open the infowindow on the correct marker.
+        // ABRE O INFOWINDOW ------------------------------------
         infowindow.open(map, marker);
     }
 
-    // FUNÇÃO PARA CRIAR UMA NOVA MARCA(MARKER) E SEUS ESTILOS
+    // FUNÇÃO PARA CRIAR UMA NOVA MARCA(MARKER) E SEUS ESTILOS ---------------------------
+    
     function makeMarkerIcon(markerColor) {
         var markerImage = new google.maps.MarkerImage(
             'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|' + markerColor +
@@ -200,16 +199,14 @@ function initMap() {
             new google.maps.Point(0, 0),
             new google.maps.Point(10, 34),
             new google.maps.Size(21, 34));
-        return markerImage;
+            return markerImage;
     }
 
-    // Foursquare helper function
+    // FUNÇÃO DA API DO FOURSQUARE
     function callFoursquare(data, callback) {
-
-        // Specify foursquare url components
-        var versao = "20180323";
         var secretId = "AD3NKH3HXLWX3SDFSTMIGWMKODE0PR2JIGNWNAODRAYCWAMH";
         var clientId = "NM3VGFOXONZSMG23M3VXWVLUUZP3WEH0FJIWHKZHPTJMMHEH";
+        var versao = "20180323";
         var ll = "-23.558191,-46.665903";
         var query = data.toLowerCase().replace("", "");
         var foursquareUrl = "https://api.foursquare.com/v2/venues/search?v=" + versao + "&ll=" + ll + "&query=" + query + "&client_id=" + clientId + "&client_secret=" + secretId;
@@ -217,7 +214,7 @@ function initMap() {
         //var foursquareUrl = "https://api.foursquare.com/v2/venues/search=" + versao + "&ll=" + ll + "&query=" + query + clientId + secretId;
 
        // url: https://api.foursquare.com/v2/venues/explore
-        // Request JSON from foursquare api, process response
+
         $.getJSON(foursquareUrl).done(function(data) {
             var places = data.response.venues[0];
             callback(places);
@@ -227,7 +224,8 @@ function initMap() {
      
     }
 
-    // Function for returning the check-ins of a place on foursquare
+    // FUNÇÃO DO FOURSQUARE PARA RETORNAR OS CHECK-INS -------------------
+    
     function fsRating(data, callback) {
         callFoursquare(data, function(data) {
             var foursquare = {};
@@ -237,6 +235,8 @@ function initMap() {
         });
     }
 }
+
+// VARIAVEL DAS LOCALIZAÇÕES DOS 5 PUBS ------------------------------------
 
 var locations = [{
             title: "O'Malley's", 
@@ -285,27 +285,32 @@ ViewModel = function() {
     self.places = ko.observableArray([{
             title: "O'Malley's Bar",
             address: 'Alameda Itu, 1529',
-           // website:
+            website: 'http://www.omalleysbar.net/',
+            //webtext: "teste",
            },
         {
             title: 'The Black Crow Pub',
             address: 'R. Mourato Coelho, 628',
-           // website:
+            website: 'http://www.blackcrow.com.br/',
+            //webtext: "teste",
         },
         {
             title: 'Finnegans Pub',
             address: 'R. Cristiano Viana, 358',
-           // website:
+            website: 'https://www.finnegans.com.br/',
+           // webtext: "teste",
         },
         {
             title: 'All Black Pub',
             address: 'Rua Oscar Freire, 163',
-           // website:
+            website: 'http://www.allblack.com.br/',
+           // webtext: "teste",
         },
         {
             title: 'Partisans Pub',
             address: 'R. Cônego Eugênio Leite, 944',
-           // website:
+            website: 'http://www.partisans.com.br/',
+           // webtext: "teste",
         }
     ]);
 
