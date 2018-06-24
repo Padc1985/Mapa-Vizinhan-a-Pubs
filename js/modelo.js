@@ -1,4 +1,3 @@
-// Viewmodel for Discovering Midtown-Reno app
 var locations = ko.observableArray([{
              title: "O'Malley's", 
             location: {lat:-23.558191, lng:-46.665903}, 
