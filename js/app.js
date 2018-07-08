@@ -113,6 +113,8 @@ function initMap() {
             id: i
         });
         
+        
+        
         // ADICIONA O MARCADOR NO LOCAL
         vm.places()[i].marker = marker;
         markers.push(marker);
@@ -129,6 +131,15 @@ function initMap() {
             this.setIcon(defaultIcon);
         });
         
+        //Como solicitado na revisão, adicionei o efeito de Bounce e coloquei um timeout de 2seg
+        //fonte: https://developers.google.com/maps/documentation/javascript/examples/marker-animations
+          marker.addListener('click', function(){
+              var self = this;
+              self.setAnimation(google.maps.Animation.BOUNCE);
+              setTimeout(function() {
+                self.setAnimation(null);
+            }, 2000);
+        });    
 
     }
 
