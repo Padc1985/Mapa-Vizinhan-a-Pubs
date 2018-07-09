@@ -5,11 +5,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
+
   </head>
   <body>
     <div class="container">
+          <div class="navbar">
+   <img src="img/bars.svg" id="show-btn" class="fa fa-bars" aria-hidden="true">       
+
+  </div>
+        
       <aside id="nav" class="sidebar">
+  
         <h1>Pubs da Zona Sul/Centro</h1>
+         
         <hr>
         <div>
           <span class="filter-label">Localizador:</span>
@@ -17,6 +25,8 @@
         </div>
         <hr>
         <h2>Melhores Pubs:</h2>
+         
+              
 	      <div id="top-places" data-bind="foreach: filteredPlaces">
             <ul id="locais">
   	            <li class="titulos" data-bind="click: $root.showInfo, text: title"></li>
@@ -24,9 +34,12 @@
                 <li class="websites" data-bind="text: website"></li>
   	        </ul>
           </div>
-          
+        
         
      </aside>
+      
+        
+        
      <div id="map" class="detalhes-mapa"></div>
     </div>
 
@@ -34,9 +47,7 @@
     <script src="js/lib/jquery-3.2.1.min.js"></script>
     <script src="js/lib/knockout-3.4.2.js"></script>
     <script src="js/app.js"></script>
-
-    <script 
-        src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyDb2q06x-DerIgI1L2Y_I2XHFZ82uZZ9OE&v=3&callback=initMap" async defer onerror="mapError()">
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyDb2q06x-DerIgI1L2Y_I2XHFZ82uZZ9OE&v=3&callback=initMap" async defer onerror="mapError()">
     </script>
 
   </body>
