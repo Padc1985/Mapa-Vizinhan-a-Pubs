@@ -9,10 +9,10 @@
   </head>
   <body>
     <div class="container">
+        
           <div class="navbar">
-   <img src="img/bars.svg" id="show-btn" class="fa fa-bars" aria-hidden="true">       
-
-  </div>
+                <img src="img/bars.svg" id="show-btn" class="fa fa-bars" aria-hidden="true">       
+          </div>
         
       <aside id="nav" class="sidebar">
   
@@ -25,23 +25,19 @@
         </div>
         <hr>
         <h2>Melhores Pubs:</h2>
-         
-              
-	      <div id="top-places" data-bind="foreach: filteredPlaces">
+          <div id="top-places" data-bind="foreach: filteredPlaces">
             <ul id="locais">
   	            <li class="titulos" data-bind="click: $root.showInfo, text: title"></li>
   	            <li class="enderecos" data-bind="text: address"></li>
                 <li class="websites" data-bind="text: website"></li>
   	        </ul>
           </div>
-        
-        
      </aside>
       
-        
+    </div>  
         
      <div id="map" class="detalhes-mapa"></div>
-    </div>
+   
 
 
     <script src="js/lib/jquery-3.2.1.min.js"></script>
