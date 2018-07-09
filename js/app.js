@@ -2,6 +2,17 @@
 var map, marker;
 var markers = [];
 
+document.getElementById('show-btn').addEventListener('click', toggleSidebar);
+
+function toggleSidebar() {
+  var navBar = document.getElementById('nav');
+  if (navBar.style.display === "none") {
+    navBar.style.display = "block";
+  } else {
+    navBar.style.display = "none";
+  }
+}
+
 function initMap() {
 
    //ARRAY PARA ALTERAR DETALHES(ESTILOS) DO MAPA ATUAL.
@@ -113,8 +124,6 @@ function initMap() {
             id: i
         });
         
-        
-        
         // ADICIONA O MARCADOR NO LOCAL
         vm.places()[i].marker = marker;
         markers.push(marker);
@@ -139,7 +148,8 @@ function initMap() {
               setTimeout(function() {
                 self.setAnimation(null);
             }, 2000);
-        });    
+        }); 
+        
 
     }
 
